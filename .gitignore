@@ -1,0 +1,52 @@
+# Node modules (if you're using Node.js)
+node_modules/
+
+# Dependency directories for other package managers (if any)
+bower_components/
+
+# Build output directories
+/dist/
+/build/
+
+# Log files
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+*.log
+
+# IDE/Editor settings (VSCode, Sublime, etc.)
+.vscode/
+/.idea/
+/*.sublime-workspace
+/*.sublime-project
+
+# OS-generated files
+.DS_Store         # macOS
+Thumbs.db         # Windows
+desktop.ini       # Windows
+
+# Environment files (for sensitive info, like API keys)
+.env
+
+# Temporary files
+*.swp
+*.bak
+*.tmp
+
+# Bundle files (if you're bundling CSS, JS, etc.)
+/public/bundle/
+
+# SASS or other compiled CSS files (if you're using a preprocessor)
+*.css.map
+*.scssc
+
+# Minified CSS/JS (if you don't want to track minified files)
+*.min.css
+*.min.js
+
+# Images (if you don't want to track optimized images or copies)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg

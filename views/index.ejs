@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Job Application Tracker</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* ... (rest of your CSS styles) */
+
+        .hero {
+            position: relative; /* Important: Make hero relative for absolute positioning of particles */
+            overflow: hidden; /* Hide particles that go outside the hero bounds */
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place particles behind the hero content */
+            pointer-events: none; /* Allow clicks to pass through the particles */
+        }
+    </style>
+</head>
+
+<body style="font-family: 'Roboto', sans-serif;">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">AI Job Tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary text-white" href="#">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" style="position: relative; z-index: 1;">
+        <div id="particles-js"><canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas></div>
+        <div class="container">
+            <h1>Land Your Dream Job Faster</h1>
+            <p>Track, Optimize, and Ace Your Job Search with AI</p>
+            <img src="your-ai-image.png" alt="AI-Assisted Job Search" class="img-fluid" width="600"> <br><br>
+
+            <a href="#" class="btn btn-primary btn-lg mr-3">Sign Up Free</a>
+            <a href="#" class="btn btn-secondary btn-lg">Learn More</a>
+        </div>
+        <canvas id="particles-js" class="particles-js-canvas-el" style="position: absolute; top: 0; left: 0; z-index: -1;" width="100%" height="100%"></canvas>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <div class="feature-icon"> <i class="fas fa-calendar-check"></i> </div>
+                    <h3>Centralized Job Tracking</h3>
+                    <p>Keep all your job applications in one place, from wish list to offer.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="feature-icon"> <i class="fas fa-lightbulb"></i> </div>
+                    <h3>AI-Driven Resume Optimization</h3>
+                    <p>Get AI-powered suggestions to polish your resume and make it stand out.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="feature-icon"> <i class="fas fa-chart-line"></i> </div>
+                    <h3>Application Insights & Analytics</h3>
+                    <p>Track your progress, analyze your application success rate, and identify areas for improvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>What People Are Saying</h2>
+            <div class="testimonial">
+                <p>"This app has been a game-changer in my job search. I'm so much more organized and I love the AI
+                    resume feedback!"</p>
+                <p>- John Doe, Software Engineer</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-light text-center py-3">
+        <div class="container">
+            <p>&copy; 2023 AI Job Tracker. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Include Bootstrap and particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="js/particles-config.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+
+.hero {
+    background-color: #f8f9fa;
+    padding: 120px 0;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 50px;
+}
+
+.features {
+    padding: 100px 0;
+}
+
+.feature-icon {
+    font-size: 4.5rem;
+    margin-bottom: 30px;
+    color: #007bff;
+}
+
+.testimonials {
+    background-color: #f8f9fa;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.testimonial {
+    margin: 0 auto;
+    max-width: 700px;
+    font-style: italic;
+}
+
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place particles behind the hero content */
+    pointer-events: none; /* Allow clicks to pass through the particles */
+}
+
+/* Basic styling for the form (you'll likely want to customize this further) */
+#mc_embed_signup {
+    background: #fff;
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+}
+
+#mc_embed_signup_scroll {
+    padding: 30px;
+}
+
+#mc-embedded-subscribe-form .mc-field-group {
+    margin-bottom: 20px;
+}
+
+#mc-embedded-subscribe {
+    background-color: #007bff;
+    border: none;
+    padding: 12px 20px;
+}
+
+/* Added styles for responsiveness and image */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+}
