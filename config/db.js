@@ -1,16 +1,17 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+require('dotenv').config(); // Load environment variables
 
 const connectDB = async () => {
     try {
-        await mongoose.connect("mongodb://127.0.0.1:27017/jobtracker", {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
+        await mongoose.connect(process.env.MONGO_URI, {
+            tls: true, // Secure connection (if your MongoDB requires it)
         });
-        console.log("MongoDB Connected...");
+        console.log("✅ Connected to MongoDB");
     } catch (err) {
-        console.error(err.message);
-        process.exit(1);
+        console.error("❌ MongoDB Connection Error:", err);
+        process.exit(1); // Stop server if DB connection fails
     }
 };
 
+// Export the function
 module.exports = connectDB;

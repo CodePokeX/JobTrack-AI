@@ -1,0 +1,17 @@
+<main class="flex justify-center items-center min-h-screen px-6">
+    <div class="flex flex-col items-center w-full max-w-2xl">
+        
+        <% if (error_msg && error_msg.length > 0) { %>
+            <div class="alert alert-error w-full text-center"><%= error_msg %></div>
+        <% } %>
+
+        <div class="card w-full bg-white shadow-2xl rounded-lg p-8">
+            <div class="card-body text-center">
+                <h2 class="text-3xl font-bold text-black">Welcome, <%= user ? user.firstname : "Guest" %>!</h2>
+                <p class="text-gray-700">Your email: <%= user ? user.email : "N/A" %></p>
+
+                <a href="/logout" class="btn btn-error w-full mt-4">Logout</a>
+            </div>
+        </div>
+    </div>
+</main>

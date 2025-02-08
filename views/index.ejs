@@ -1,110 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Job Tracker</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/static/css/tailwind.css">
-    <link rel="stylesheet" href="/css/landpagestyle.css">
-</head>
-
-<body class="font-roboto">
-
-    <nav class="navbar bg-base-100">
-        <div class="container mx-auto flex justify-between items-center">
-            <a class="btn btn-ghost normal-case text-xl text-white" href="#">AI Job Tracker</a>
-            <div class="hidden md:flex">
-                <ul class="menu menu-horizontal px-1">
-                    <li><a class="text-white" href="#">Log In</a></li>
-                    <li><a class="btn btn-primary" href="/sign-in">Sign Up</a></li> <!-- Updated to link to /sign-in -->
-                </ul>
-            </div>
+<section class="hero relative">
+    <div id="particles-js" class="absolute inset-0"></div>
+    <div class="hero-content text-center relative z-10">
+        <div class="max-w-2xl mx-auto">
+            <h1 class="mb-5 text-5xl font-bold text-gray-900">
+                Land Your Dream Job Faster
+            </h1>
+            <p class="mb-5 text-gray-700">
+                Track, Optimize, and Ace Your Job Search with AI
+            </p>
+            <img src="your-ai-image.png" alt="AI-Assisted Job Search" class="max-w-md mx-auto mb-8">
+            <a class="btn btn-primary mr-3" href="/sign-in">Sign Up Free</a>
+            <a class="btn btn-secondary" href="#">Learn More</a>
         </div>
-    </nav>
+    </div>
+</section>
 
-    <section class="hero">
-        <div id="particles-js"></div>
-        <div class="hero-content text-center">
-            <div class="max-w-2xl mx-auto">
-                <h1 class="mb-5 text-5xl font-bold text-gray-900">
-                    Land Your Dream Job Faster
-                </h1>
-                <p class="mb-5 text-gray-700">
-                    Track, Optimize, and Ace Your Job Search with AI
-                </p>
-                <img src="your-ai-image.png" alt="AI-Assisted Job Search" class="max-w-md mx-auto mb-8">
-                <a class="btn btn-primary mr-3" href="/sign-in">Sign Up Free</a> <!-- Updated to link to /sign-in -->
-                <a class="btn btn-secondary" href="#">Learn More</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="features py-20 bg-gray-100">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                <div class="card bg-white shadow-xl hover:scale-105 transition-all duration-300 ease-in-out">
-                    <div class="card-body">
-                        <div class="feature-icon mb-4 text-center">
-                            <i class="fas fa-calendar-check text-4xl text-primary"></i>
-                        </div>
-                        <h3 class="card-title text-xl font-semibold text-center">Centralized Job Tracking</h3>
-                        <p class="text-center">Keep all your job applications in one place, from wish list to offer.</p>
+<section class="features py-20 bg-gray-100">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card bg-white shadow-xl hover:scale-105 transition-all duration-300 ease-in-out">
+                <div class="card-body w-full flex flex-col items-center text-center">
+                    <div class="feature-icon mb-4 text-center">
+                        <i class="fas fa-calendar-check text-4xl text-primary"></i>
                     </div>
+                    <h3 class="card-title text-xl font-semibold text-center">Centralized Job Tracking</h3>
+                    <p class="text-center">Keep all your job applications in one place, from wish list to offer.</p>
                 </div>
-
-                <div class="card bg-white shadow-xl hover:scale-105 transition-all duration-300 ease-in-out">
-                    <div class="card-body">
-                        <div class="feature-icon mb-4 text-center">
-                            <i class="fas fa-lightbulb text-4xl text-primary"></i>
-                        </div>
-                        <h3 class="card-title text-xl font-semibold text-center">AI-Driven Resume Optimization</h3>
-                        <p class="text-center">Get AI-powered suggestions to polish your resume and make it stand out.</p>
+            </div>
+            <div class="card bg-white shadow-xl hover:scale-105 transition-all duration-300 ease-in-out">
+                <div class="card-body w-full flex flex-col items-center text-center">
+                    <div class="feature-icon mb-4 text-center">
+                        <i class="fas fa-lightbulb text-4xl text-primary"></i>
                     </div>
+                    <h3 class="card-title text-xl font-semibold text-center">AI-Driven Resume Optimization</h3>
+                    <p class="text-center">Get AI-powered suggestions to polish your resume and make it stand out.</p>
                 </div>
-
-                <div class="card bg-white shadow-xl hover:scale-105 transition-all duration-300 ease-in-out">
-                    <div class="card-body">
-                        <div class="feature-icon mb-4 text-center">
-                            <i class="fas fa-chart-line text-4xl text-primary"></i>
-                        </div>
-                        <h3 class="card-title text-xl font-semibold text-center">Application Insights & Analytics</h3>
-                        <p class="text-center">Track your progress, analyze your application success rate, and identify areas for improvement.</p>
+            </div>
+            <div class="card bg-white shadow-xl hover:scale-105 transition-all duration-300 ease-in-out">
+                <div class="card-body w-full flex flex-col items-center text-center">
+                    <div class="feature-icon mb-4 text-center">
+                        <i class="fas fa-chart-line text-4xl text-primary"></i>
                     </div>
+                    <h3 class="card-title text-xl font-semibold text-center">Application Insights & Analytics</h3>
+                    <p class="text-center">Track your progress, analyze your application success rate, and identify areas for improvement.</p>
                 </div>
-
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="testimonials py-12 bg-gray-100">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold mb-8 text-col text-blue-700">What People Are Saying</h2>
-            <div class="testimonial bg-white p-8 rounded-lg shadow-md max-w-lg mx-auto">
-                <p class="mb-4">"This app has been a game-changer in my job search. I'm so much more organized and I
-                    love the AI resume feedback!"</p>
-                <p class="font-bold">- John Doe, Software Engineer</p>
-            </div>
+<section class="testimonials py-12 bg-gray-100">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-blue-700 text-center">What People Are Saying</h2>
+        <div class="testimonial bg-white p-8 rounded-lg shadow-md max-w-lg mx-auto">
+            <p class="mb-4">"This app has been a game-changer in my job search. I'm so much more organized and I
+                love the AI resume feedback!"</p>
+            <p class="font-bold text-center">- John Doe, Software Engineer</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer class="bg-gray-800 text-white text-center py-3">
-        <div class="container mx-auto">
-            <p>&copy; 2023 AI Job Tracker. All rights reserved.</p>
-        </div>
-    </footer>
+<footer class="bg-gray-800 text-white text-center py-3">
+    <div class="container mx-auto">
+        <p>&copy; 2023 AI Job Tracker. All rights reserved.</p>
+    </div>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="js/particles-config.js"></script>
-
-</body>
-
-</html>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="/js/particles-config.js"></script>

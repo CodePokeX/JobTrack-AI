@@ -7,10 +7,18 @@
     <title><%= title %></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/static/css/tailwind.css">
+    <link rel="stylesheet" href="/css/landpagestyle.css">
 </head>
 
-<body class="font-roboto bg-gradient-to-r from-indigo-200 via-blue-100 to-teal-100 flex justify-center items-center min-h-screen text-black">
+<body class="font-roboto w-full min-h-screen bg-gradient-to-r from-indigo-200 via-blue-100 to-teal-100 text-black">
+
 
     <% if (loggedIn) { %>
         <%- include('partials/navbar2.ejs') %>
@@ -18,12 +26,14 @@
         <%- include('partials/navbar1.ejs') %>
     <% } %>
 
-    <div class="container mx-auto">
-        <%- body %>
-    </div>
 
-    <%- include('partials/darkmodetoggle.ejs') %>
+    <%- body %>
 
+
+    <!-- <%- include('partials/darkmodetoggle.ejs') %> -->
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="/js/particles-config.js"></script>
 
     <!-- Optional Scripts -->
     <script>

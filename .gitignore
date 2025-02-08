@@ -44,9 +44,9 @@ desktop.ini       # Windows
 *.min.css
 *.min.js
 
-# Images (if you don't want to track optimized images or copies)
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
+# # Images (if you don't want to track optimized images or copies)
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
+# *.svg
