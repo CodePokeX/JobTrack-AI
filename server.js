@@ -6,7 +6,7 @@ const expressLayouts = require("express-ejs-layouts");
 const passport = require("passport");
 const path = require("path");
 const connectDB = require("./config/db");
-const { GoogleGenerativeAI } = require("@google/generative-ai/dist/generative-ai.js");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const app = express();
 const PORT = process.env.PORT || 3500;
@@ -43,6 +43,8 @@ app.use((req, res, next) => {
   res.locals.error_msg = req.flash("error_msg");
   res.locals.error = req.flash("error");
   res.locals.loggedIn = req.isAuthenticated ? req.isAuthenticated() : false;
+  // res.locals.formData = req.session.formData || {}; // Make form data available in views
+  delete req.session.formData; // Clear it after using
   next();
 });
 
