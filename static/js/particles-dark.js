@@ -43,7 +43,7 @@ particlesJS("particles-js", {
       value: "#38bdf8", // Blue color for particles
     },
     line_linked: {
-      color: "#007bff", // Blue color for connecting lines
+      color: "#38bdf8", // Blue color for connecting lines
       distance: 150,
       enable: true,
       opacity: 0.4,

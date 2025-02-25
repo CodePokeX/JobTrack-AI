@@ -7,7 +7,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("corpusTheme") || getSystemTheme();
+    const savedTheme = localStorage.getItem("jobtrackerTheme") || getSystemTheme();
     setTheme(savedTheme);
 });
 
@@ -29,11 +29,48 @@ function setTheme(theme) {
     if (theme === "night") {
         icon.classList.replace("fa-moon", "fa-sun");
         button.classList.replace("border-black", "border-white");
+        reloadParticles("dark");  // Reload particles
     } else {
         icon.classList.replace("fa-sun", "fa-moon");
         button.classList.replace("border-white", "border-black");
+        reloadParticles("light");  // Reload particles
     }
 
-    localStorage.setItem("corpusTheme", theme);
+    localStorage.setItem("jobtrackerTheme", theme);
 }
+
+// Function to dynamically load the correct particles script
+function loadScript(scriptName) {
+    const existingScript = document.getElementById("particles-script");
+    if (existingScript) {
+        existingScript.remove();
+    }
+
+    const script = document.createElement("script");
+    script.src = `/js/${scriptName}`;
+    script.id = "particles-script";
+    script.defer = true;
+    document.body.appendChild(script);
+}
+
+function reloadParticles(mode) {
+    // Destroy existing particles
+    if (window.pJSDom && window.pJSDom.length) {
+        window.pJSDom.forEach(p => p.pJS.fn.vendors.destroypJS());
+        window.pJSDom = [];
+    }
+
+    // Load new particles based on theme
+    if (mode === "dark") {
+        loadScript("particles-dark.js");
+    } else {
+        loadScript("particles-config.js");
+    }
+}
+
+// Load particles based on the saved theme when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+    const theme = localStorage.getItem("jobtrackerTheme") || getSystemTheme();
+    loadScript(theme === "night" ? "particles-dark.js" : "particles-config.js");
+});
 </script>
