@@ -1,4 +1,4 @@
-particlesJS("particles-darkjs", {
+particlesJS("particles-js", {
   interactivity: {
     detect_on: "window", // Detect interaction on the entire window
     events: {
