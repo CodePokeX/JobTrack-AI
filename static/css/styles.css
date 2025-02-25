@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+  .from-myBlue {
+    --tw-gradient-from: #e0f7ff var(--tw-gradient-from-position);
+    --tw-gradient-to: #e0f7ff00 var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  .from-sky-50 {
+    --tw-gradient-from: #f0f9ff var(--tw-gradient-from-position);
+    --tw-gradient-to: #f0f9ff00 var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  .to-blue-300 {
+    --tw-gradient-to: #93c5fd var(--tw-gradient-to-position);
+  }
+
+  .from-myDarkBlue {
+    --tw-gradient-from: #161f2e var(--tw-gradient-from-position); /* Dark Blue */
+    --tw-gradient-to: #161f2e00 var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  .from-gray-900 {
+    --tw-gradient-from: #111827 var(--tw-gradient-from-position); /* Very Dark Gray */
+    --tw-gradient-to: #11182700 var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  .to-blue-600 {
+    --tw-gradient-to: #121d36 var(--tw-gradient-to-position); /* Bright Blue */
+  }
+  .bg-gradient-radial-light {
+    background: radial-gradient(
+      circle at 50% 40%,
+      #e0f7ff 10%,
+      #93c5fd 10%,
+      #dbeafe 100%
+    );
+  }
+  .bg-gradient-radial-dark {
+    background: radial-gradient(
+      circle at 30% 40%,
+      #1e293b 10%,
+      #121d36 40%,
+      #0a172b 100%
+    );
+  }
+}

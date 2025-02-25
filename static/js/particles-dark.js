@@ -1,34 +1,53 @@
-particlesJS("particles-darkjs", {
+particlesJS("particles-js", {
   interactivity: {
     detect_on: "window", // Detect interaction on the entire window
     events: {
       onclick: {
         enable: false,
-        mode: "push", // Disabled onclick event
+        mode: "push",
       },
       onhover: {
-        enable: true, // Hover effect enabled
-        mode: "repulse", // Enable repulse mode on hover
+        enable: true,
+        mode: "repulse",
       },
       resize: true,
     },
     modes: {
+      bubble: {
+        distance: 350,
+        duration: 2,
+        opacity: 0.8,
+        size: 30,
+        speed: 3,
+      },
+      grab: {
+        distance: 400,
+        line_linked: {
+          opacity: 1,
+        },
+      },
+      push: {
+        particles_nb: 4,
+      },
+      remove: {
+        particles_nb: 2,
+      },
       repulse: {
-        distance: 100, // Distance for repulsion effect
-        duration: 0.4, // Duration of the repulsion effect
+        distance: 120,
+        duration: 0.4,
       },
     },
   },
   particles: {
     color: {
-      value: "#007bff", // Blue color for particles
+      value: "#38bdf8", // Blue color for particles
     },
     line_linked: {
-      color: "#007bff", // Blue color for the lines connecting particles
-      distance: 150, // Maximum distance between particles for the lines to appear
-      enable: true, // Enables the lines
-      opacity: 0.4, // Line opacity (set to 0 for invisible lines)
-      width: 1, // Line thickness (set to 1, can be adjusted for thicker lines)
+      color: "#007bff", // Blue color for connecting lines
+      distance: 150,
+      enable: true,
+      opacity: 0.4,
+      width: 1,
     },
     move: {
       attract: {
@@ -41,7 +60,7 @@ particlesJS("particles-darkjs", {
       enable: true,
       out_mode: "out",
       random: false,
-      speed: 4, // Particle speed
+      speed: 4, // Slightly reduced speed for a calmer effect
       straight: false,
     },
     number: {
@@ -71,20 +90,20 @@ particlesJS("particles-darkjs", {
         nb_sides: 5,
       },
       stroke: {
-        color: "#007bff", // Match stroke color with particle color
-        width: 1, // Particle stroke thickness (set to 1)
+        color: "#38bdf8", // Match stroke color with particles
+        width: 1,
       },
-      type: "triangle", // Shape of the particles (triangle)
+      type: "triangle",
     },
     size: {
       anim: {
         enable: true,
-        size_min: 0.1, // Minimum particle size
-        speed: 2.43, // Speed of particle size animation
+        size_min: 0.1,
+        speed: 2.43,
         sync: false,
       },
-      random: true, // Random particle sizes
-      value: 3, // Default particle size (can be increased for bigger particles)
+      random: true,
+      value: 3,
     },
   },
   retina_detect: true,

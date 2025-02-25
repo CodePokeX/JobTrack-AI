@@ -1,37 +1,39 @@
-<button class="btn btn-ghost btn-outline btn-circle fixed bottom-10 right-10" onclick="toggleTheme()" id="dark-mode-button">
-    <span class="material-symbols-outlined" id="dark-mode-toggle"></span>
+<!-- Dark Mode Toggle Button -->
+<button class="btn btn-circle fixed bottom-5 right-5 p-3 border-2 border-black dark:border-white bg-transparent transition-all duration-300"
+        onclick="toggleTheme()" 
+        id="dark-mode-button">
+    <i id="dark-mode-toggle" class="fas fa-moon text-black dark:text-white transition-all duration-300"></i>
 </button>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(() => {
-        const theme = localStorage.getItem("corpusTheme") || (window.matchMedia('(prefers-color-scheme: light)').matches ? "winter" : "night");
-        const icon = theme === "winter" ? "dark_mode" : "light_mode";
-        document.documentElement.setAttribute("data-theme", theme);
-        $("#dark-mode-toggle").html(icon);
-        updateParticles(theme);
-    });
+document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("corpusTheme") || getSystemTheme();
+    setTheme(savedTheme);
+});
 
-    const toggleTheme = () => {
-        let theme = localStorage.getItem("corpusTheme") || "winter";
-        theme = theme === "winter" ? "night" : "winter";
-        const icon = theme === "winter" ? "dark_mode" : "light_mode";
-        document.documentElement.setAttribute("data-theme", theme);
-        $("#dark-mode-toggle").html(icon);
-        updateParticles(theme);
-        localStorage.setItem("corpusTheme", theme);
-    };
+function getSystemTheme() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "night" : "myblueLight";
+}
 
-    const updateParticles = (theme) => {
-        try {
-            if (theme === "winter") {
-                particlesJS.load('particles-js', '/static/js/particles.json');
-            } else {
-                particlesJS.load('particles-js', '/static/js/particles-dark.json');
-            }
-        }
-        catch (e) {
-            console.log(e);
-        }
-    };
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute("data-theme") || "myblueLight";
+    const newTheme = (currentTheme === "myblueLight") ? "night" : "myblueLight";
+    setTheme(newTheme);
+}
+
+function setTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    const icon = document.getElementById("dark-mode-toggle");
+    const button = document.getElementById("dark-mode-button");
+
+    if (theme === "night") {
+        icon.classList.replace("fa-moon", "fa-sun");
+        button.classList.replace("border-black", "border-white");
+    } else {
+        icon.classList.replace("fa-sun", "fa-moon");
+        button.classList.replace("border-white", "border-black");
+    }
+
+    localStorage.setItem("corpusTheme", theme);
+}
 </script>

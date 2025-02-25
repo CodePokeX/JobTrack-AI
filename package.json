@@ -8,7 +8,8 @@
     "dev": "nodemon",
     "build:css": "tailwindcss -i ./static/css/styles.css -o ./static/css/tailwind.css",
     "build:css:minified": "tailwindcss -i ./static/css/styles.css -o ./static/css/tailwind.min.css --minify",
-    "tailwind-dev": "tailwindcss -i ./static/css/styles.css -o ./static/css/tailwind.css --watch"
+    "tailwind-dev": "tailwindcss -i ./static/css/styles.css -o ./static/css/tailwind.css --watch",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -37,10 +38,18 @@
     "postcss-cli": "^11.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.20.0",
     "autoprefixer": "^10.4.20",
     "daisyui": "^4.12.23",
+    "eslint": "^9.20.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "nodemon": "^3.1.9",
     "postcss": "^8.5.1",
+    "prettier": "^3.4.2",
     "tailwindcss": "^3.4.17"
   }
 }

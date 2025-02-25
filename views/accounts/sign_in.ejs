@@ -1,4 +1,4 @@
-<main class="flex justify-center items-center min-h-[calc(100vh-4rem)] px-6">
+<main class="flex justify-center font-roboto w-full min-h-screen bg-gradient-to-br from-sky-50 to-blue-300 dark:from-myDarkBlue dark:to-blue-600 text-base-content">
 
     <div class="flex flex-col items-center w-full max-w-2xl">
         
@@ -12,37 +12,37 @@
 
         <div class="flex items-center mb-8">  
             <img src="/static/images/logo.png" alt="Company Logo" class="h-16 w-auto mr-4">  
-            <h1 class="text-3xl font-bold text-black">Your Company Name</h1>  
+            <h1 class="text-3xl font-bold">Your Company Name</h1>  
         </div>
         
-        <div class="card w-full bg-white shadow-2xl rounded-lg p-8">
+        <div class="card w-full bg-base-100 shadow-2xl rounded-lg p-8">
             <div class="card-body">
-                <h2 class="text-3xl font-bold text-center mb-6 text-black">Sign In</h2>
+                <h2 class="text-3xl font-bold text-center mb-6">Sign In</h2>
 
                 <form action="/sign-in" method="POST">
                     <div class="grid grid-cols-2 gap-4 mb-4">
                         <div class="form-control">
-                            <label class="label"><span class="label-text text-black">First Name</span></label>
+                            <label class="label"><span class="label-text">First Name</span></label>
                             <input type="text" name="firstname" class="input input-bordered w-full bg-neutral-100" required>
                         </div>
                         <div class="form-control">
-                            <label class="label"><span class="label-text text-black">Last Name</span></label>
+                            <label class="label"><span class="label-text">Last Name</span></label>
                             <input type="text" name="lastname" class="input input-bordered w-full bg-neutral-100" required>
                         </div>
                     </div>
 
                     <div class="form-control w-full mb-4">
-                        <label class="label"><span class="label-text text-black">Email</span></label>
+                        <label class="label"><span class="label-text">Email</span></label>
                         <input type="email" name="email" class="input input-bordered w-full bg-neutral-100" required>
                     </div>
 
                     <div class="grid grid-cols-2 gap-4 mb-6">
                         <div class="form-control">
-                            <label class="label"><span class="label-text text-black">Password</span></label>
+                            <label class="label"><span class="label-text">Password</span></label>
                             <input type="password" name="password" class="input input-bordered w-full bg-neutral-100" required>
                         </div>
                         <div class="form-control">
-                            <label class="label"><span class="label-text text-black">Confirm Password</span></label>
+                            <label class="label"><span class="label-text">Confirm Password</span></label>
                             <input type="password" name="confirmPassword" class="input input-bordered w-full bg-neutral-100" required>
                         </div>
                     </div>
@@ -51,7 +51,11 @@
                 </form>
 
                 <div class="mt-6 text-center">
-                    <p class="text-sm text-black">By signing up, I agree to the <a href="#" class="text-blue-500 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-500 hover:underline">Privacy Policy</a></p>
+                    <p class="text-sm">
+                        By signing up, I agree to the
+                        <a href="#" class="text-blue-500 hover:underline">Terms of Service</a> and
+                        <a href="#" class="text-blue-500 hover:underline">Privacy Policy</a>
+                    </p>
                 </div>
             </div>
         </div>
