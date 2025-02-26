@@ -6,7 +6,7 @@ const expressLayouts = require("express-ejs-layouts");
 const passport = require("passport");
 const path = require("path");
 const connectDB = require("./config/db");
-const { GoogleGenerativeAI } = require("@google/generative-ai/dist/generative-ai.js");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const app = express();
 const PORT = process.env.PORT || 3500;
