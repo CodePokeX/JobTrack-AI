@@ -1,45 +1,61 @@
 <main class="flex justify-center items-center h-screen px-6 bg-gradient-to-br from-sky-50 to-blue-300 dark:from-myDarkBlue dark:to-blue-600 text-base-content">
     <div class="flex flex-col items-center w-full max-w-2xl">
         
-        <% if (success_msg.length > 0) { %>
+        <!-- Success Message -->
+        <% if (success_msg && success_msg.length > 0) { %>
             <div class="alert alert-success w-full text-center"><%= success_msg %></div>
         <% } %>
         
-        <% if (error_msg.length > 0) { %>
+        <!-- Error Message -->
+        <% if (error_msg && error_msg.length > 0) { %>
             <div class="alert alert-error w-full text-center"><%= error_msg %></div>
         <% } %>
-
-        <% if (error.length > 0) { %>
-            <div class="alert alert-error w-full text-center"><%= error %></div>
-        <% } %>
-
+  
         <div class="flex items-center mb-8">
             <img src="/static/images/logo.png" alt="Company Logo" class="h-16 w-auto mr-4">
             <h1 class="text-3xl font-bold text-gray-800 dark:text-white">Your Company Name</h1>
         </div>
         
-        <div class="card w-full bg-white dark:bg-gray-900 shadow-2xl rounded-lg p-8">
+        <div class="card w-full bg-gray-800 dark:bg-gray-900 shadow-2xl rounded-lg p-8">
             <div class="card-body">
-                <h2 class="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-white">Sign In</h2>
-
+                <h2 class="text-3xl font-bold text-center mb-6 text-white">Sign In</h2>
+  
                 <form action="/login" method="POST">
+                    <!-- Email Field -->
                     <div class="form-control w-full mb-4">
-                        <label class="label"><span class="label-text text-gray-800 dark:text-gray-300">Email</span></label>
-                        <input type="email" name="email" class="input input-bordered w-full bg-neutral-100 dark:bg-gray-800 dark:text-white" required>
+                        <label class="label"><span class="label-text text-gray-300">Email</span></label>
+                        <!-- Pre-fill email field with entered value -->
+                        <input 
+                            type="email" 
+                            name="email" 
+                            value="<%= email || '' %>" 
+                            class="input input-bordered w-full bg-neutral-100 dark:bg-gray-800 dark:text-white" 
+                            required>
                     </div>
-
+  
+                    <!-- Password Field -->
                     <div class="form-control w-full mb-6">
-                        <label class="label"><span class="label-text text-gray-800 dark:text-gray-300">Password</span></label>
-                        <input type="password" name="password" class="input input-bordered w-full bg-neutral-100 dark:bg-gray-800 dark:text-white" required>
+                        <label class="label"><span class="label-text text-gray-300">Password</span></label>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            class="input input-bordered w-full bg-neutral-100 dark:bg-gray-800 dark:text-white" 
+                            required>
                     </div>
-
+  
+                    <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary w-full">Sign In</button>
                 </form>
-
+  
+                <!-- Terms and Privacy Policy -->
                 <div class="mt-6 text-center">
-                    <p class="text-sm text-gray-800 dark:text-gray-300">By signing in, I agree to the <a href="#" class="text-blue-500 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-500 hover:underline">Privacy Policy</a></p>
+                    <p class="text-sm text-gray-300">By signing in, I agree to the 
+                        <a href="#" class="text-blue-500 hover:underline">Terms of Service</a> and 
+                        <a href="#" class="text-blue-500 hover:underline">Privacy Policy</a>.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-</main>
+  </main>
+  
