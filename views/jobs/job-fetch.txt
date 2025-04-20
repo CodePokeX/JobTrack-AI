@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Listings</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-base-100 h-screen overflow-hidden text-base-content">
+
+  <!-- Main Flex Container -->
+  <div class="flex h-screen">
+    
+    <!-- Left: Job List -->
+    <div class="flex-1 flex flex-col min-h-0">
+      <div class="flex-1 overflow-y-auto p-4">
+        <h2 class="text-xl font-bold mb-4">Top job picks for you</h2>
+        <p class="text-sm mb-2">Based on your profile, preferences, and activity like applies, searches, and saves</p>
+        <p class="text-sm mb-4"><%= jobs.length %> results</p>
+
+        <% if (jobs && jobs.length > 0) { %>
+          <% jobs.forEach((job, index) => { %>
+            <div class="job-card bg-neutral text-base-content rounded-lg p-4 mb-2 shadow hover:shadow-lg cursor-pointer" data-job-index="<%= index %>">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 rounded-md overflow-hidden mr-2 flex justify-center items-center bg-neutral">
+                  <% if (job.employer_logo) { %>
+                    <img src="<%= job.employer_logo %>" alt="<%= job.employer_name %> Logo" class="object-contain max-w-full max-h-full">
+                  <% } else { %>
+                    <span class="text-xs font-semibold uppercase"><%= job.employer_name.substring(0, 2).toUpperCase() %></span>
+                  <% } %>
+                </div>
+                <h3 class="job-title text-lg font-semibold hover:underline"><%= job.job_title %></h3>
+              </div>
+              <p class="text-sm"><%= job.employer_name %></p>
+              <p class="text-xs"><%= job.job_city %>, <%= job.job_state %>, <%= job.job_country %> (<%= job.job_employment_type || 'N/A' %>)</p>
+            </div>
+          <% }); %>
+        <% } else { %>
+          <p>No jobs found.</p>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- Right: Job Details -->
+    <div class="flex-1 flex flex-col min-h-0">
+      <div id="jobDetailsContent" class="bg-neutral overflow-y-auto p-4 flex-1 text-base-content">
+        <!-- Job details will render here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const jobCards = document.querySelectorAll('.job-card');
+    const jobDetailsContent = document.getElementById('jobDetailsContent');
+    const jobListingsData = <%- JSON.stringify(jobs) %>;
+
+    function openJobDetails(job) {
+      let description = job.job_description || 'No description available.';
+
+      const formattedDescription = description
+        .split('\n')
+        .map(line => {
+          const trimmed = line.trim();
+
+          const isLikelyHeading =
+            /^.+:$/i.test(trimmed) ||
+            /^[A-Z\s\-–—·]{4,}$/.test(trimmed) ||
+            (trimmed.length < 40 && !trimmed.includes('.') && !trimmed.includes('-') && /^[A-Za-z\s]+$/.test(trimmed));
+
+          if (isLikelyHeading) {
+            return `<h3 class="text-lg font-semibold border-b border-gray-300 mt-6 mb-3 pb-1">${trimmed}</h3>`;
+          }
+
+          return `<p class="mb-2">${trimmed}</p>`;
+        })
+        .join('');
+
+      jobDetailsContent.innerHTML = `
+        <div class="bg-base-neutral text-base-content shadow-lg rounded-lg p-6 space-y-6">
+          <div class="flex items-center">
+            <div class="w-14 h-14 bg-neutral rounded-full flex justify-center items-center overflow-hidden mr-4">
+              ${
+                job.employer_logo
+                  ? `<img src="${job.employer_logo}" alt="${job.employer_name} Logo" class="object-contain max-w-full max-h-full">`
+                  : `<span class="text-xs font-bold uppercase">${job.employer_name.substring(0, 2)}</span>`
+              }
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold">${job.job_title}</h2>
+              <p class="text-sm">${job.employer_name}</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            ${job.job_remote ? `<span class="px-2 py-1 text-xs font-semibold bg-blue-100 rounded-full">Remote</span>` : ''}
+            ${job.job_workplace_type?.toLowerCase() === 'on-site' ? `<span class="px-2 py-1 text-xs font-semibold bg-yellow-100 rounded-full">On-site</span>` : ''}
+            ${job.job_workplace_type?.toLowerCase() === 'hybrid' ? `<span class="px-2 py-1 text-xs font-semibold bg-base-200 rounded-full">Hybrid</span>` : ''}
+            ${job.formatted_relative_date ? `<span class="px-2 py-1 text-xs font-semibold bg-green-100 rounded-full">${job.formatted_relative_date}</span>` : ''}
+            ${job.is_easy_apply ? `<span class="px-2 py-1 text-xs font-semibold bg-indigo-100 rounded-full">Easy Apply</span>` : ''}
+          </div>
+
+          <div class="text-sm leading-relaxed">
+            ${formattedDescription}
+          </div>
+        </div>
+      `;
+    }
+
+    // Load first job by default
+    if (jobListingsData.length > 0) {
+      openJobDetails(jobListingsData[0]);
+    }
+
+    // Attach event listeners
+    jobCards.forEach(card => {
+      card.addEventListener('click', function () {
+        const jobIndex = this.dataset.jobIndex;
+        const selectedJob = jobListingsData[jobIndex];
+        openJobDetails(selectedJob);
+      });
+    });
+  </script>
+</body>
+</html>
