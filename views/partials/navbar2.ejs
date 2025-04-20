@@ -2,12 +2,42 @@
     <div class="container mx-auto flex justify-between items-center px-1 py-0">
         <a class="btn btn-ghost normal-case text-xl" href="/dashboard">AI Job Tracker</a>
 
-        <div class="hidden md:flex">
+        <div class="hidden md:flex items-center gap-4">
             <ul class="menu menu-horizontal px-1 gap-4">
                 <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a class="btn btn-secondary" href="/logout">Logout</a></li>
+
+                <!-- User Dropdown -->
+                <li class="relative">
+                    <button class="btn btn-ghost flex items-center gap-2" id="user-menu-button">
+                        <i class="fas fa-user-circle text-2xl"></i> <!-- User Icon -->
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <ul class="absolute right-0 mt-2 w-40 bg-base-100 shadow-md rounded-lg hidden" id="user-dropdown">
+                        <li><a href="/profile" class="block px-4 py-2 hover:bg-base-200"><i class="fas fa-user"></i> Profile</a></li>
+                        <li><a href="/logout" class="block px-4 py-2 text-red-500 hover:bg-base-200"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const userMenuButton = document.getElementById("user-menu-button");
+        const userDropdown = document.getElementById("user-dropdown");
+
+        // Toggle dropdown on button click
+        userMenuButton.addEventListener("click", () => {
+            userDropdown.classList.toggle("hidden");
+        });
+
+        // Close dropdown if clicked outside
+        document.addEventListener("click", (event) => {
+            if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
+                userDropdown.classList.add("hidden");
+            }
+        });
+    });
+</script>

@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 3500;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/", express.static(path.join(__dirname, "/static")));
+app.use("/", express.static(path.join(__dirname, "/public")));
 
 // Connect to MongoDB
 connectDB();
@@ -43,6 +44,8 @@ app.use((req, res, next) => {
   res.locals.error_msg = req.flash("error_msg");
   res.locals.error = req.flash("error");
   res.locals.loggedIn = req.isAuthenticated ? req.isAuthenticated() : false;
+  // res.locals.formData = req.session.formData || {}; // Make form data available in views
+  delete req.session.formData; // Clear it after using
   next();
 });
 
@@ -71,6 +74,7 @@ app.use("/", require("./routes/root.js"));
 app.use("/sign-in", require("./routes/accounts/sign_in.js"));
 app.use("/login", require("./routes/accounts/login.js"));
 app.use("/dashboard", require("./routes/dashboard.js"));
+app.use("/profile", require("./routes/accounts/profile_page.js"));
 
 app.all("*", (req, res) => {
   res.status(404);

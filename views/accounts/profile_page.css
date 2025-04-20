@@ -1,0 +1,55 @@
+/* Reset body alignment */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    text-align: left !important; /* Force left alignment */
+    direction: ltr; /* Ensure left-to-right text flow */
+}
+
+/* Profile container */
+.profile-container {
+    width: 60%;
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left !important; /* Force left alignment */
+    margin: 20px 0 20px 20px; /* Push content to the left */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Ensure left alignment */
+}
+
+/* Profile content */
+.profile-container h1, 
+.profile-container p {
+    color: #333;
+    margin-bottom: 10px;
+    text-align: left !important; /* Ensure left-aligned text */
+    width: 100%; /* Prevent unwanted shifting */
+}
+
+/* Ensure input fields & forms are also left-aligned */
+input, textarea {
+    text-align: left !important;
+    direction: ltr;
+}
+
+/* Button styling */
+.back-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: left !important; /* Force left alignment */
+}
+
+.back-button:hover {
+    background: #0056b3;
+}
