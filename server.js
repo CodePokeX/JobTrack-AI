@@ -7,6 +7,10 @@ const passport = require("passport");
 const path = require("path");
 const connectDB = require("./config/db");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+// const { JobServiceClient } = require("@google-cloud/talent");
+
+// // ✅ Set Google Cloud Credentials Path at the Start
+// process.env.GOOGLE_APPLICATION_CREDENTIALS = path.join(__dirname, "config/jobtrack-ai-25962c2a08cc.json");
 
 const app = express();
 const PORT = process.env.PORT || 3500;
@@ -59,18 +63,55 @@ app.post("/api/generate", async (req, res) => {
     }
 
     const result = await model.generateContent(prompt);
-    res.json({ response: result.response.text() });
+    const responseText = result.response?.candidates?.[0]?.content?.parts?.[0]?.text || "No response available";
+    res.json({ response: responseText });
   } catch (error) {
     console.error("Error generating AI response:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
+// // ✅ Google Cloud Talent API Setup
+// const client = new JobServiceClient();
+// const projectId = "jobtrack-ai"; // Replace with your project ID
+
+// app.get("/fetch-jobs", async (req, res) => {
+//   try {
+//       const { JobServiceClient } = require('@google-cloud/talent');
+//       const client = new JobServiceClient();
+
+//       const formattedParent = `projects/${projectId}/tenants/default`; // or your tenant.
+//       const request = {
+//           parent: formattedParent,
+//           requestMetadata: {
+//               userId: 'anonymous',
+//               sessionId: 'anonymous',
+//               domain: 'example.com',
+//           },
+//           searchMode: 1, //JOB_SEARCH
+//           query: 'Software Engineer' // or 'software', or whatever keyword you want.
+//       };
+
+//       const [response] = await client.searchJobs(request);
+
+//       if (response.matchingJobs && response.matchingJobs.length > 0) {
+//           const jobTitles = response.matchingJobs.map(matchingJob => matchingJob.job.title);
+//           res.json(jobTitles); // Sending only job titles for simplicity
+//       } else {
+//           res.json([]); // Send empty array if no jobs found
+//       }
+//   } catch (error) {
+//       console.error("Error fetching jobs:", error);
+//       res.status(500).send("Error fetching jobs");
+//   }
+// });
+
 // Routes
 app.use("/", require("./routes/root.js"));
 app.use("/sign-in", require("./routes/accounts/sign_in.js"));
 app.use("/login", require("./routes/accounts/login.js"));
 app.use("/dashboard", require("./routes/dashboard.js"));
+app.use('/jobs', require("./routes/jobs/job-fetch.js"));
 
 app.all("*", (req, res) => {
   res.status(404);

@@ -1,0 +1,77 @@
+.job-card {
+    @apply border rounded-lg bg-gray-50 shadow-sm flex items-center p-4 mb-4 transition-all duration-300;
+}
+.job-card:hover {
+    @apply shadow-md -translate-y-1;
+}
+
+.company-logo {
+    @apply w-12 h-12 bg-white rounded-md flex items-center justify-center mr-4;
+}
+
+.company-logo img {
+    @apply max-w-full max-h-full object-contain;
+}
+
+.job-details {
+    @apply flex-grow;
+}
+
+.job-title {
+    @apply text-lg font-bold text-gray-800 mb-1;
+}
+
+.company-name {
+    @apply text-sm text-gray-600 mb-1;
+}
+
+.location {
+    @apply text-sm text-gray-500;
+}
+
+.badges {
+    @apply flex flex-wrap gap-2 mt-2;
+}
+
+.badge {
+    @apply text-xs px-2 py-1 rounded;
+}
+
+.badge.remote {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.badge.on-site {
+    background-color: #ffe0b2;
+    color: #d68910;
+}
+
+.badge.hybrid {
+    background-color: #f5f5f5;
+    color: #495057;
+    border: 1px solid #ced4da;
+}
+
+.apply-button {
+    @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm;
+}
+
+.close-button {
+    @apply text-gray-400 text-xl ml-4 hover:text-gray-700;
+}
+
+@media (max-width: 600px) {
+    .job-card {
+        @apply flex-col items-start;
+    }
+    .company-logo {
+        @apply mb-2 mr-0;
+    }
+    .apply-button {
+        @apply w-full mt-3;
+    }
+    .close-button {
+        @apply absolute top-2 right-2;
+    }
+}
