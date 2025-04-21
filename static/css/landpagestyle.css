@@ -36,6 +36,12 @@
   font-style: italic;
 }
 
+.logo {
+  width: 100%; /* Full width of the container */
+height: 200px; /* Fixed height */
+object-fit: contain; /* Ensures entire image is visible without distortion */
+}
+
 #particles-js {
   position: absolute;
   top: 0;
